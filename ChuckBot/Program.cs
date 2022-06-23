@@ -9,6 +9,7 @@ IHost host = Host.CreateDefaultBuilder(args)
         services.AddHostedService<Worker>();
         services.AddSingleton(new DiscordClient(new DiscordConfiguration()
             { Token = configuration["Discord:Token"], TokenType = TokenType.Bot }));
+        services.AddSingleton(configuration);
     })
     .Build();
 
